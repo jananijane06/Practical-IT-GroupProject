@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css">
+    <style>
+        :root {
+            --eggplant: #564756ff;
+            --eggplant-2: #5f4e5fff;
+            --eggplant-3: #695669ff;
+            --chinese-violet: #735f73ff;
+            --chinese-violet-2: #7e697eff;
+            --mountbatten-pink: #8b748bff;
+            --mountbatten-pink-2: #998099ff;
+            --rose-quartz: #a88da8ff;
+            --lilac: #b99bb9ff;
+            --lilac-2: #cbaacbff;
+            --white: #ffffff;
+        }
+
+        *{
+            text-decoration: none;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(white 30%, #ECD5E3, #CBAACB, #333), url('https://www.transparenttextures.com/patterns/glitter.png');
+            color: var(--eggplant);
+            background-blend-mode: overlay;
+            background-size: cover;
+            min-height: 100%;
+            padding-top: 60px;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        html{
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation Bar */
+        nav{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 100px;
+            background-color: #CBAACB;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 9999;
+        }
+        #logo{
+            font-size: 29px;
+            font-weight: bold;
+            transition: 0.2s ease-in-out;
+            position: relative;
+        }
+        #logo a{
+            color: #F2F7F5;
+        }
+        #logo span{
+            color: #333
+        }
+        #logo:hover{
+            transform: scale(1.06);
+        }
+        nav ul li{
+            list-style-type: none;
+            display: inline-block;
+            padding: 10px 20px;
+        }
+        nav ul li a{
+            color: #F2F7F5;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            padding: 25px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            position: relative;
+            outline: none;
+            transition: 0.2s;
+        }
+        nav ul li a:hover{
+            color:#333;
+            transition: .3s;
+        }
+        .navlink::after {
+            content: "";
+            background-color: #333;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 3.5px;
+            width: 0;
+            transition: 0.35s;
+        }
+        .navlink:hover,
+        .navlink:focus {
+            color: #333;
+        }
+        .navlink:hover::after,
+        .navlink:focus::after {
+            background-color: #333;
+            width: 100%;
+        }
+
+        /* Header Section */
+        header {
+            background-color: var(--rose-quartz);
+            color: var(--white);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 48px;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        header p {
+            font-size: 20px;
+            margin-top: 10px;
+            letter-spacing: 1.2px;
+        }
+
+        @media only screen and (max-width: 900px){
+            header{
+                padding: 50px 20px;
+                padding-top: 250px;
+            }
+            nav ul li{
+            padding: 15px 20px;
+            }
+        }
+
+        /* About Section */
+        .about-section {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .about-section img {
+            flex: 1;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-text {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .about-text h2 {
+            font-size: 40px;
+            color: var(--eggplant);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            font-size: 20px;
+            line-height: 1.8;
+            color: var(--eggplant-3);
+        }
+
+        /* Team Section */
+        .team {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .team h2 {
+            text-align: center;
+            font-size: 36px;
+            color: var(--eggplant);
+            margin-bottom: 30px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 80px;
+        }
+
+        .team-grid .team-member:nth-child(4),
+        .team-grid .team-member:nth-child(5) {
+            grid-column: span 1;
+        }
+
+        .team-member {
+            background-color: #ECEAE4;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            width: 250px;
+            height: 300px;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+
+        .team-member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 4px solid var(--rose-quartz);
+        }
+
+        .team-member h3 {
+            font-size: 22px;
+            color: var(--eggplant);
+            margin: 10px 0 5px;
+        }
+
+        .team-member p {
+            font-size: 16px;
+            color: var(--chinese-violet-2);
+        }
+
+        /* Footer Section */
+        footer{
+            width: 100%;
+            height: auto;
+            background: #CBAACB;
+            padding-top: 15px;
+            color: #333;
+            position: absolute;
+        }
+        .footer-content{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .footer-content h2{
+            font-size: 30px;
+            font-weight: bold;
+            line-height: 3rem;
+        }
+        .footer-content p{
+            max-width: 500px;
+            margin: 10px auto;
+            line-height: 28px;
+            font-size: 18px;
+        }
+        .contact-info{
+            position: relative;
+            list-style: none;
+        }
+        .contact-info li{
+            display: grid;
+            grid-template-columns: 30px 1fr;
+            margin-bottom: 0;
+        }
+        .contact-info li span{
+            display: grid;
+            align-items: center;
+        }
+        .contact-info li p{
+            margin-left: 0;
+        }
+        .footer-content p{
+            font-size: 19px;
+            margin-top: 0;
+        }
+        .footer-content .click-here{
+            margin: 8px;
+            border: 2px solid transparent;
+            border-radius: 20px;
+            background-color: #8b748bff;
+            color:#ECEAE4;
+            padding: 4px 8px;
+            transition: 0.25s ease-in-out;
+            letter-spacing: 1px;
+            font-size: 17px;
+        }
+        .footer-content .click-here:hover{
+            background-color: #695669ff;
+            color:#ECEAE4;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        .contact-border p{
+            margin-top: 6px;
+        }
+        .contact-border{
+            padding: 2px 200px;
+            background-color: rgba(0, 0, 0, 0.04);
+            transition: 0.3s ease-in-out;
+            margin-bottom: 12px;
+        }
+        .contact-border:hover{
+            background-color: rgba(0, 0, 0, 0.09);
+            box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.4);
+        }
+        .socials{
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 28px;
+            margin-top: 20px;
+        }
+        .socials li{
+            margin: 0 10px;
+            transition: 0.25s ease-in-out;
+        }
+        .socials a{
+            text-decoration: none;
+            color: #333;
+            border: 15px solid transparent;
+            border-radius: 50%;
+            background-color: #ECEAE4;
+            color:#333;
+            transition: 0.25s ease-in-out;
+        }
+        .socials a i{
+            font-size: 20px;
+        }
+        .socials a:hover{
+            color: #ECEAE4;
+            background-color: #695669ff;
+        }
+        .socials li:hover{
+            transform: scale(1.15);
+        }
+        .copyright{
+            width: 100%;
+            background: #b99bb9ff;
+            padding: 15px 100px 20px;
+            text-align: center;
+            color: #333;
+            border: 1px solid rgba(0,0,0,0.15);
+        }
+        @media only screen and (max-width: 800px){
+            .footer-content .click-here{
+                margin: 0;
+            }
+            .team-grid {
+            grid-template-columns: repeat(1, 1fr);
+            margin-left: 120px;
+            margin-right: auto;
+            }
+        }
+
+    </style>
+</head>
+
+    <!--Navigation Bar-->
+    <nav>
+        <div id="logo"><a href="index.html"><span>Little Big</span> Moments</a></div>
+        <ul>
+            <li><a href="index.html" class="navlink">Home</a></li>
+            <li><a href="SERVICE PAGE.html" class="navlink">Services</a></li>
+            <li><a href="gallery.html" class="navlink">Gallery</a></li>
+            <li><a href="#" class="navlink">About</a></li>
+            <li><a href="contact-us.html" class="navlink">Contact</a></li>
+        </ul>
+    </nav>
+
+<body>
+    <!-- Header -->
+    <header>
+        <h1>About Us</h1>
+        <p>Building unforgettable memories, one moment at a time.</p>
+    </header>
+
+    <!-- About Section -->
+    <div class="about-section">
+        <img src="about us.jpg" alt="Wedding Event">
+        <div class="about-text">
+            <h2>Who We Are</h2>
+            <p>
+                At <strong>Little Big Moments</strong>, we specialize in crafting memorable events tailored to your vision. 
+                Whether you're planning a wedding, corporate gathering, or intimate celebration, we ensure every detail is perfect. 
+                Our passion is turning your dreams into reality, one moment at a time.
+            </p>
+        </div>
+    </div>
+
+    <!-- Team Section -->
+    <div class="team">
+        <h2>Our Team</h2>
+        <div class="team-grid">
+            <!-- First Row -->
+            <div class="team-member">
+                <img src="ayesha.jpg" alt="Ayesha Imtiyaz">
+                <h3>Ayesha Imtiyaz</h3>
+                <p>Student ID: 0375159</p>
+                <p>About Us Page</p>
+            </div>
+            <div class="team-member">
+                <img src="audrey.jpg" alt="Audrey Teoh Jia Wen">
+                <h3>Audrey Teoh Jia Wen</h3>
+                <p>Student ID: 0376038</p>
+                <p>Contact Us Page</p>
+            </div>
+            <div class="team-member">
+                <img src="hayley.jpg" alt="Hayley Chan Li Qing">
+                <h3>Hayley Chan Li Qing</h3>
+                <p>Student ID: 0375680</p>
+                <p>Home Page</p>
+            </div>
+            <!-- Second Row -->
+            <div class="team-member">
+                <img src="fateh.jpg" alt="Fateh Jethva">
+                <h3>Fateh Jethva</h3>
+                <p>Student ID: 0376014</p>
+                <p>Gallery Page</p>
+            </div>
+            <div class="team-member">
+                <img src="janani.jpg" alt="Janani A/P Pragash">
+                <h3>Janani A/P Pragash</h3>
+                <p>Student ID: 0376553</p>
+                <p>Service Page</p>
+            </div>
+        </div>
+    </div>
+
+    <!--Footer-->
+    <footer>
+        <div class="footer-content">
+            <h2>Contact Us</h2>
+            <ul class="socials">
+                <li><a href="https://www.instagram.com/audreytjw/" target="blank"><i class="fa-brands fa-instagram"></i></a></li>
+                <li><a href="https://www.instagram.com/ayeshaimtiiyaz/" target="blank"><i class="fa-brands fa-x-twitter"></i></a></li>
+                <li><a href="https://www.instagram.com/_fateh.j/" target="blank"><i class="fa-brands fa-facebook"></i></a></li>
+                <li><a href="https://www.instagram.com/hayley.lq/" target="blank"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                <li><a href="https://www.instagram.com/janani.jane06/" target="blank"><i class="fa-brands fa-tiktok"></i></a></li>
+            </ul>
+            <div class="contact-border">
+                <ul class="contact-info">
+                    <li>
+                        <span><i class="fa-solid fa-phone"></i></span><p>+60123456789</p>
+                    </li>
+                    <li>
+                        <span><i class="fa-solid fa-envelope"></i></span><p>littlebigmoments@gmail.com</p>
+                    </li>
+                </ul>
+                <p>For more enquires,<a href="contact-us.html" class="click-here">Click Here</a></p>
+            </div>
+        </div>
+
+        <div class="copyright">
+             <p>Copyright &copy; 2024 Little Big Moments. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
